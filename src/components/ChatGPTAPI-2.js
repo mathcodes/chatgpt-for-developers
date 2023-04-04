@@ -18,8 +18,8 @@ const ChatGPTAPI = () => {
 
   async function runCompletion(prompt) {
     console.log("runCompletion");
-    const chatData = prompt.split("//*chatData*//")[1] || "";
-    prompt = prompt.split("//*chatData*//")[0];
+    const chatData = prompt.split("***")[1] || "";
+    prompt = prompt.split("***")[0];
     const completion = await openai.createCompletion({
       model: 'davinci',
       prompt: prompt + chatData,
