@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
+import ModelsComponent from './ModelsComponent';
+import EmbeddingsComponent from './EmbeddingsComponent';
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -15,8 +17,8 @@ const ChatGPTAPI = () => {
   async function runCompletion(prompt) {
     console.log("runCompletion");
 
-    const completion = await openai.createCompletion({
-      model: 'davinci',
+    const completion = await openai.createCompletion({ // this is an async function that calls the API
+      model: 'code-davinci-002',
       prompt: prompt,
     });
     setResponse(completion.data.choices[0].text);
@@ -64,7 +66,8 @@ console.log(completion        );
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r-lg" type="button" onClick={() => setChatData('')}>Reset</button>
           </div>
         </form>
-
+            <ModelsComponent  />
+            <EmbeddingsComponent />
       </div>
     </div>
     </div>
