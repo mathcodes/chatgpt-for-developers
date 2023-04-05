@@ -2,7 +2,8 @@
 
 This is a repository for ChatGPT-for-devs, a chatbot development tool that leverages the OpenAI GPT-3.5 architecture to provide conversational interfaces for websites and backend systems.
 
-<img
+
+<img src="https://github.com/mathcodes/chatgpt-for-developers/blob/main/public/images/chatgpt.gif" alt="gif chatgpt @jcricle9 ai for developers" />
 
 
 
