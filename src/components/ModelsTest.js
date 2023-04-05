@@ -19,17 +19,15 @@ const ModelsTest = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Language Model Results:</h1>
-      <code
-        style={{
-          display: 'block',
-          whiteSpace: 'pre-wrap',
-          wordBreak: 'break-word',
-        }}
+    <div
+    className="flex flex-col items-center justify-center w-full h-full p-4 text-center text-white bg-gray-800"
+    >
+    <h1 className="mb-4 text-xl font-bold">Language Model Results:</h1>
+    <code className="block text-white break-words whitespace-pre-wrap">
+      {JSON.stringify(result)}
+    </code>
+  </div>
 
-      >{JSON.stringify(result)}</code>
-    </div>
   );
 };
 

@@ -1,6 +1,9 @@
 # ChatGPT-for-devs
 
 This is a repository for ChatGPT-for-devs, a chatbot development tool that leverages the OpenAI GPT-3.5 architecture to provide conversational interfaces for websites and backend systems.
+<!--
+ <iframe width="560" height="315" src="./public/images/chatgpt.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
 
 ## Installation
 
