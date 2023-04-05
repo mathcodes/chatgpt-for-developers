@@ -1,4 +1,4 @@
-# ChatGPT-for-devs
+# ChatGPT-for-Developers
 
 This is a repository for ChatGPT-for-devs, a chatbot development tool that leverages the OpenAI GPT-3.5 architecture to provide conversational interfaces for websites and backend systems.
 
@@ -12,7 +12,7 @@ This is a repository for ChatGPT-for-devs, a chatbot development tool that lever
 To use ChatGPT-for-devs, clone the repository to your local machine and install the required dependencies using `npm install`.
 
 ```bash
-git clone https://github.com/your-username/chatgpt-for-devs.git
+git clone https://github.com/mathcodes/chatgpt-for-developers.git
 cd chatgpt-for-devs
 npm install
 ```
