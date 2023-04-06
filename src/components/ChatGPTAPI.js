@@ -4,7 +4,7 @@ import ModelsComponent from './ModelsComponent';
 import ModelsTest from './ModelsTest';
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);

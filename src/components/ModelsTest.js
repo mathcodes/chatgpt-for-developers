@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -32,7 +32,16 @@ const ModelsTest = () => {
   const prettyPrintJson = (json) => {
     const jsonString = JSON.stringify(json, null, 2);
     const formattedJson = jsonString.replace(/,\s/g, ',\n');
-    return formattedJson;
+    const lines = formattedJson.split('\n');
+    return (
+      <pre className="text-white">
+        {lines.map((line, index) => (
+          <div key={index} className="hover:text-pink-500">
+            {line}
+          </div>
+        ))}
+      </pre>
+    );
   };
 
   return (
