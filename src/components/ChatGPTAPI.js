@@ -4,7 +4,7 @@ import ModelsComponent from './ModelsComponent';
 import ModelsTest from './ModelsTest';
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: process.env.CHATGPT_OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);

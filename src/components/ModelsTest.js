@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: process.env.CHATGPT_OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
