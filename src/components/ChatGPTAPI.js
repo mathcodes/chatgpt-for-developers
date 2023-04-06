@@ -4,7 +4,7 @@ import ModelsComponent from './ModelsComponent';
 import ModelsTest from './ModelsTest';
 
 const configuration = new Configuration({
-  apiKey: 'process.env.REACT_APP_OPENAI_KEY',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -14,14 +14,20 @@ const ChatGPTAPI = () => {
   const [response, setResponse] = useState('then you can see the response here');
   const [chatData, setChatData] = useState('');
 
+
   async function runCompletion(prompt) {
     console.log("runCompletion");
-
+    console.log(response);
     const completion = await openai.createCompletion({ // this is an async function that calls the API
-      model: 'davinci',
+      model: 'text-davinci-003',
       prompt: prompt,
+      temperature: 0,
+      max_tokens: 7,
     });
-    setResponse(completion.data.choices[0].text);
+    setResponse(
+      // map over the choices array and return the text
+      completion.data.choices.map((choice) => choice.text)
+    );
     console.log(response);
     console.log(completion);
     console.log(completion.data);
@@ -41,9 +47,6 @@ const ChatGPTAPI = () => {
     <div className="container h-auto mx-auto">
       <div className="p-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 h-fit">
         <div className="flex flex-col bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-
-
-
           <h2 className="mb-4 text-2xl font-bold text-white bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">ChatGPT Basic API</h2>
           <section className="p-2 m-4 bg-opacity-50 border rounded-lg shadow-xl border-zinc-300 shadow-white bg-zinc-900">
             <h3 className="mb-4 text-xl font-bold text-left text-white bg-gray-900 bg-opacity-0 ">Attach data as variable:</h3>

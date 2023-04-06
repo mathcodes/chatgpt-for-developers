@@ -2,32 +2,50 @@ import React, { useState, useEffect } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
-  apiKey: 'process.env.REACT_APP_OPENAI_KEY',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
 
 const ModelsTest = () => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState({
+    id: '',
+    object: '',
+    created: 0,
+    model_version: '',
+    parent: '',
+    training_data: [],
+    ready: false,
+  });
 
   useEffect(() => {
+    console.log('useEffect');
     const getModel = async () => {
-      const response = await openai.retrieveModel('text-davinci-003');
+      console.log('getModel');
+      const response = await openai.retrieveModel('davinci');
+      console.log(response);
       setResult(response);
     };
     getModel();
   }, []);
 
-  return (
-    <div
-    className="flex flex-col items-center justify-center w-full h-full p-4 text-center text-white bg-gray-800"
-    >
-    <h1 className="mb-4 text-xl font-bold">Language Model Results:</h1>
-    <code className="block text-white break-words whitespace-pre-wrap">
-      {JSON.stringify(result)}
-    </code>
-  </div>
+  const prettyPrintJson = (json) => {
+    const jsonString = JSON.stringify(json, null, 2);
+    const formattedJson = jsonString.replace(/,\s/g, ',\n');
+    return formattedJson;
+  };
 
+  return (
+    <div className="container h-auto mx-auto">
+      <div className="p-4 text-white bg-gray-800">
+        <h1 className="mb-4 text-xl font-bold text-left">Language Model Results:</h1>
+        <div className="text-left">
+          <pre className="p-2 overflow-scroll bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4">
+            {prettyPrintJson(result)}
+          </pre>
+        </div>
+      </div>
+    </div>
   );
 };
 

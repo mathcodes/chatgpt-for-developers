@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -32,7 +32,7 @@ const ModelsComponent = () => {
     console.log(completion.data);
     console.log(completion.data.choices);
 
-    setResponse(completion.data.choices[0].text + completion.data.choices[1].text + completion.data.choices[2].text + completion.data.choices[3].text + completion.data.choices[4].text + completion.data.choices[5].text + completion.data.choices[6].text + completion.data.choices[7].text + completion.data.choices[8].text + completion.data.choices[9].text);
+    setResponse(completion.data.choices[0].text)
   }
 
   function handleModelChange(event) {
@@ -97,11 +97,17 @@ const ModelsComponent = () => {
         Prompt:
       </label>
       <input
-        type="text"
-        id="prompt"
-        value={prompt}
-        onChange={(event) => setPrompt(event.target.value)}
-        className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4" />
+  className="w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
+  placeholder={prompt}
+  type="text"
+  id="prompt"
+  value={prompt}
+  onChange={(event) => setPrompt(event.target.value)}
+  onFocus={(event) => event.target.value = ''}
+  onBlur={(event) => event.target.value = {prompt}}
+  style={{ height: '100px' }}
+/>
+
     </div>
 
     <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-lg hover:bg-pink-500 border-inner-blue-500 hover:border-inner-blue-500 hover:border-inner-4" type="button" onClick={runCompletion}>Generate</button>

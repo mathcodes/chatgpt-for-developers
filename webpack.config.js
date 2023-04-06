@@ -1,33 +1,48 @@
 const path = require('path');
-const webpack = require('webpack');
-const dotenv = require('dotenv');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = () => {
-  // Load environment variables from the .env file
-  const env = dotenv.config().parsed;
+module.exports = {
+  entry: './src/index.js',
+  resolve: {
+    fallback: {
+      path: require.resolve("path-browserify"),
+      stream: require.resolve("stream-browserify"),
+      crypto: require.resolve("crypto-browserify"),
+      buffer: require.resolve("buffer/"),
+      process: require.resolve("process/browser"),
+    }
+  },
+  plugins: [
+    new NodePolyfillPlugin(),
+  ],
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  mode: 'development', // 'production' | 'development',
 
-  // Define global constants for the environment variables
-  const envKeys = Object.keys(env).reduce((acc, curr) => {
-    acc[`process.env.${curr}`] = JSON.stringify(env[curr]);
-    return acc;
-  }, {});
-
-  return {
-    entry: './src/index.js',
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js',
-    },
-    resolve: {
-      fallback: {
-        util: require.resolve('util/'),
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react'],
+          },
+        },
       },
-    },
-    plugins: [
-      new webpack.ProvidePlugin({
-        process: 'process/browser',
-      }),
-      new webpack.DefinePlugin(envKeys),
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
-  };
+  },
+
+  // Exclude node_modules from being bundled, except for a few modules:
+  externals: [nodeExternals({
+    allowlist: ['path-browserify', 'stream-browserify', 'crypto-browserify', 'buffer/', 'process/browser']
+  })],
 };
