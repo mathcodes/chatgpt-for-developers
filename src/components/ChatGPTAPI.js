@@ -45,29 +45,31 @@ const ChatGPTAPI = () => {
 
   return (
     <div className="container h-auto mx-auto">
-      <div className="p-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 h-fit">
-        <div className="flex flex-col bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-          <h2 className="mb-4 text-2xl font-bold text-white bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">ChatGPT Basic API</h2>
-          <section className="p-2 m-4 bg-opacity-50 border rounded-lg shadow-xl border-zinc-300 shadow-white bg-zinc-900">
+      <div className="p-4 bg-zinc-600 h-fit">
+        <div className="flex flex-col rounded bg-zinc-700">
+          <h2 className="mb-4 text-2xl font-bold text-white bg-gradient-to-r from-zinc-500 via-zinc-900 to-zinc-500">ChatGPT Basic API</h2>
+          <section className="p-2 m-4 bg-opacity-50 border rounded-sm shadow-xl border-zinc-300 shadow-white bg-zinc-900">
             <h3 className="mb-4 text-xl font-bold text-left text-white bg-gray-900 bg-opacity-0 ">Attach data as variable:</h3>
             <p className="mb-4 text-left text-white bg-gray-900 bg-opacity-0">This is a basic chatbot that uses the OpenAI API. You can type in a prompt and the chatbot will respond. You can also type in a prompt and the chatbot will respond with the user input. For example, you can type "I like ***." and the user input will replace ***.</p>
             <form onSubmit={handleSubmit} className="text-white bg-opacity-0 rounded-2xl">
-              <div className="flex mt-4 rounded-2xl ">
-                <div className="w-full p-2 m-2 text-sm bg-opacity-50 rounded-lg text-start text-zinc-200">
+              <div className="flex flex-col mt-4 rounded-2xl ">
+                <div>
+                <div className="w-full p-2 m-2 text-sm bg-opacity-50 rounded-sm text-start text-zinc-200">
                   Place any text here that you want to be replaced with the user input. For example, you can type "I like ***." and the user input will replace ***.
                 </div>
-                <input className="w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4 " placeholder="replaces *** if found in your input" type="text" value={chatData} onChange={(event) => setChatData(event.target.value)} />
-                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-purple-500 rounded-lg hover:bg-purple-700" type="button" onClick={() => setChatData('')}>Reset</button>
+                <input className="w-3/4 h-40 p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4 " placeholder="replaces *** if found in your input" type="text" value={chatData} onChange={(event) => setChatData(event.target.value)} />
+                </div>
+                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-sm hover:bg-orange-500" type="button" onClick={() => setChatData('')}>Reset</button>
               </div>
               <div className="flex rounded-2xl">
-                <input className="w-full px-2 py-0 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4 "
+                <input className="w-full px-2 py-0 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4 "
                   placeholder="Type here" type="text" value={prompt} onChange={(event) => setPrompt(event.target.value)} />
-                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-lg hover:bg-pink-500" type="submit">Send</button>
+                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-sm hover:bg-orange-500" type="submit">Send</button>
               </div>
             </form>
             <div className="flex flex-col mb-4 bg-opacity-0 bg-zinc-900">
               {/* {response && (
-              <div className="p-4 mb-4 bg-gray-100 rounded-lg">
+              <div className="p-4 mb-4 bg-gray-100 rounded-sm">
                 <p className="mb-1 font-bold text-white">User:</p>
                 <p className="mb-1">{prompt.replace('***', chatData)}</p>
                 <p className="mb-1 font-bold">Chatbot:</p>
@@ -75,29 +77,29 @@ const ChatGPTAPI = () => {
               </div>
             )} */}
               <div
-                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
+                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
 
               >
                 <label htmlFor="prompt" className="flex p-6 mb-2 font-bold text-white">User:</label>
 
-                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
+                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
                 >{prompt.replace('***', chatData)}</p>
               </div>
               <div
-                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
+                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
 
               >
                 <label htmlFor="prompt" className="flex p-6 mb-2 font-bold text-white">Chatbot:</label>
-                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
+                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
                 >{response}</p>
               </div>
             </div>
           </section>
-          <section className="p-2 m-4 bg-opacity-50 border rounded-lg shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
-            <ModelsComponent />
+          <section className="p-2 m-4 bg-opacity-50 border rounded-sm shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
+            <ModelsComponent id="differentModels"/>
           </section>
-          <section className="p-2 m-4 bg-opacity-50 border rounded-lg shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
-            <ModelsTest />
+          <section className="p-2 m-4 bg-opacity-50 border rounded-sm shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
+            <ModelsTest id="languageModelResults"/>
           </section>
 
         </div>
