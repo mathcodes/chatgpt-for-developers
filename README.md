@@ -19,22 +19,23 @@ npm install
 
 ## Dependencies
 
-ChatGPT-for-devs requires the following dependencies:
+ChatGPT-for-devs uses the following dependencies:
 
-- @testing-library/jest-dom
-- @testing-library/react
-- @testing-library/user-event
-- dotenv
-- dotenv-safe
-- dotenv-webpack
-- openai
-- openai-api
-- react
-- react-dom
-- react-scripts
-- tailwindcss
-- util
-- web-vitals
+ - @tailwindcss/forms: This library provides Tailwind CSS classes for building forms.
+ - @testing-library/jest-dom: This library provides Jest matchers for testing DOM elements.
+ - @testing-library/react: This library provides Jest matchers for testing React components.
+ - @testing-library/user-event: This library provides Jest helpers for simulating user events.
+ - dotenv: This library loads environment variables from a file.
+ - dotenv-safe: This library loads environment variables from a file with safety checks.
+ - dotenv-webpack: This library loads environment variables from a file for use with Webpack.
+ - openai: This library provides a client for the OpenAI API.
+ - openai-api: This library provides a higher-level API for interacting with the OpenAI API.
+ - react: This library is used to build user interfaces.
+ - react-dom: This library provides DOM bindings for React components.
+ - react-scripts: This is a set of tools that help you to create and develop React applications.
+ - tailwindcss: This CSS framework provides a set of utility classes for styling web pages.
+ - util: This library provides utility functions for JavaScript.
+ - web-vitals: This library provides a set of tools for measuring the performance of web pages.
 
 ## Usage
 
