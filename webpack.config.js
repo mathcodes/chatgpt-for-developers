@@ -6,6 +6,7 @@ module.exports = {
   entry: './src/index.js',
   resolve: {
     fallback: {
+      "os": require.resolve("os-browserify/browser"),
       path: require.resolve("path-browserify"),
       stream: require.resolve("stream-browserify"),
       crypto: require.resolve("crypto-browserify"),

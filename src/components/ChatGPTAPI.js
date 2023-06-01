@@ -4,7 +4,7 @@ import ModelsComponent from './ModelsComponent';
 import ModelsTest from './ModelsTest';
 
 const configuration = new Configuration({
-  apiKey: process.env.CHATGPT_OPENAI_API_KEY,
+  apiKey: process.env.CHATGPT_OPENAI_API_KEY  //  <|| your API key here,>
 });
 
 const openai = new OpenAIApi(configuration);
@@ -21,8 +21,8 @@ const ChatGPTAPI = () => {
     const completion = await openai.createCompletion({ // this is an async function that calls the API
       model: 'text-davinci-003',
       prompt: prompt,
-      temperature: 0,
-      max_tokens: 7,
+      temperature: .6,
+      max_tokens: 200,
     });
     setResponse(
       // map over the choices array and return the text
@@ -57,14 +57,14 @@ const ChatGPTAPI = () => {
                 <div className="w-full p-2 m-2 text-sm bg-opacity-50 rounded-sm text-start text-zinc-200">
                   Place any text here that you want to be replaced with the user input. For example, you can type "I like ***." and the user input will replace ***.
                 </div>
-                <input className="w-3/4 h-40 p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4 " placeholder="replaces *** if found in your input" type="text" value={chatData} onChange={(event) => setChatData(event.target.value)} />
+                <input className="w-3/4 h-40 p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-pink-500 hover:border-4 " placeholder="replaces *** if found in your input" type="text" value={chatData} onChange={(event) => setChatData(event.target.value)} />
                 </div>
-                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-sm hover:bg-orange-500" type="button" onClick={() => setChatData('')}>Reset</button>
+                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-sm hover:bg-pink-500" type="button" onClick={() => setChatData('')}>Reset</button>
               </div>
               <div className="flex rounded-2xl">
-                <input className="w-full px-2 py-0 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4 "
+                <input className="w-full px-2 py-0 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-pink-500 hover:border-4 "
                   placeholder="Type here" type="text" value={prompt} onChange={(event) => setPrompt(event.target.value)} />
-                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-sm hover:bg-orange-500" type="submit">Send</button>
+                <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-sm hover:bg-pink-500" type="submit">Send</button>
               </div>
             </form>
             <div className="flex flex-col mb-4 bg-opacity-0 bg-zinc-900">
@@ -77,20 +77,20 @@ const ChatGPTAPI = () => {
               </div>
             )} */}
               <div
-                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
+                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-pink-500 hover:border-4"
 
               >
                 <label htmlFor="prompt" className="flex p-6 mb-2 font-bold text-white">User:</label>
 
-                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
+                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-pink-500 hover:border-4"
                 >{prompt.replace('***', chatData)}</p>
               </div>
               <div
-                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
+                className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-pink-500 hover:border-4"
 
               >
                 <label htmlFor="prompt" className="flex p-6 mb-2 font-bold text-white">Chatbot:</label>
-                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-orange-500 hover:border-4"
+                <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-sm text-zinc-200 hover:border-pink-500 hover:border-4"
                 >{response}</p>
               </div>
             </div>

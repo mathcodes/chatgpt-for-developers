@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
-  apiKey: process.env.CHATGPT_OPENAI_API_KEY,
+  apiKey: process.env.CHATGPT_OPENAI_API_KEY
 });
 
 const openai = new OpenAIApi(configuration);
@@ -49,12 +49,12 @@ const ModelsComponent = () => {
 
 
     {/* <div
-        className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-orange-500 hover:border-4"
+        className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
 
       >
         <label htmlFor="prompt" className="flex p-6 mb-2 font-bold text-white">Model:</label>
 
-        <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-orange-500 hover:border-4"
+        <p className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
         >{prompt.replace('***', chatData)}</p>
       </div> */}
     <div className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 ">
@@ -66,7 +66,7 @@ const ModelsComponent = () => {
           id="model"
           value={model}
           onChange={handleModelChange}
-          className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-orange-500 hover:border-4">
+          className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4">
 
           <option value="text-davinci-002">text-davinci-002</option>
           <option value="text-curie-001">text-curie-001</option>
@@ -97,7 +97,7 @@ const ModelsComponent = () => {
         Prompt:
       </label>
       <input
-  className="w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-orange-500 hover:border-4"
+  className="w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4"
   placeholder={prompt}
   type="text"
   id="prompt"
@@ -110,7 +110,7 @@ const ModelsComponent = () => {
 
     </div>
 
-    <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-lg hover:bg-orange-500 border-inner-blue-500 hover:border-inner-blue-500 hover:border-inner-4" type="button" onClick={runCompletion}>Generate</button>
+    <button className="px-4 py-2 m-6 mx-4 font-bold text-white bg-blue-500 rounded-lg hover:bg-pink-500 border-inner-blue-500 hover:border-inner-blue-500 hover:border-inner-4" type="button" onClick={runCompletion}>Generate</button>
     <div className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 ">
       <label htmlFor="prompt" className="flex p-4 mb-2 font-bold text-white">
         Response:
@@ -119,7 +119,7 @@ const ModelsComponent = () => {
         id="response"
         value={response}
         readOnly
-        className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-orange-500 hover:border-4" />
+        className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 hover:border-pink-500 hover:border-4" />
     </div>
 
   </>
