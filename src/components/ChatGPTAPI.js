@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import ModelsComponent from './ModelsComponent';
 import ModelsTest from './ModelsTest';
+import PromptsComponent from './PromptsComponent';
 
 const configuration = new Configuration({
   apiKey: process.env.CHATGPT_OPENAI_API_KEY || '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'
@@ -51,7 +52,11 @@ const ChatGPTAPI = () => {
         <div className="flex flex-col rounded">
 
           {/* TOP HEADER */}
-          <h2 className="mb-4 text-2xl font-bold text-white ">ChatGPT Basic API</h2>
+          <h2 className="mb-4 text-2xl text-white ">OpenAI - Large Language Models</h2>
+          <h3 className="mb-4 text-lg text-white ">Models, Prompts, Resources, and the Art of Prompt Engineering</h3>
+          <section className="p-2 m-4 bg-opacity-50 border rounded-sm shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
+            <PromptsComponent id="promptComponent" />
+          </section>
           <section className="p-6 m-1 bg-opacity-50 rounded-sm ">
             {/* SECTION HEADER */}
             <h3 className="mb-4 text-xl font-bold text-left text-white ">Attach data as variable</h3>
@@ -117,6 +122,7 @@ const ChatGPTAPI = () => {
 
             </div>
           </section>
+
           <section className="p-2 m-4 bg-opacity-50 border rounded-sm shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
             <ModelsComponent id="differentModels" />
           </section>

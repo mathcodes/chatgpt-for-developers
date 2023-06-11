@@ -15,8 +15,13 @@ function SideBarWrapper(props) {
             <a href="#languageModelResults" className="block p-2 text-gray-200 border rounded hover:text-black hover:bg-gray-200">Language Model Results</a>
             <h3 className="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase">RESOURCES</h3>
             <a href="#chatGPTFacts" className="block p-2 text-gray-200 border rounded hover:text-black hover:bg-gray-200">ChatGPT Facts</a>
-            <h3 className="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase">PROMPTS</h3>
+            <h3 className="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase">PROMPT ENGINEERING</h3>
             <a href="#" className="block p-2 text-gray-200 border rounded hover:text-black hover:bg-gray-200">Storing data in a variable</a>
+            <h3 className="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase">PROMPTS</h3>
+            <a href="#" className="block p-2 text-gray-200 border rounded hover:text-black hover:bg-gray-200">Web Design Consultant</a>
+            <a href="#" className="block p-2 text-gray-200 border rounded hover:text-black hover:bg-gray-200">JavaScript Console</a>
+            <a href="#" className="block p-2 text-gray-200 border rounded hover:text-black hover:bg-gray-200">Act as a JavaScript Console</a>
+
           </nav>
         </div>
       </div>

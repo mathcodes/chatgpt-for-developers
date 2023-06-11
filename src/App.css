@@ -40,3 +40,7 @@
 #aiResponse {
   display: none;
 }
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
