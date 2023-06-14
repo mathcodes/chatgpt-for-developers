@@ -14,7 +14,15 @@ const ChatGPTAPI = () => {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
   const [chatData, setChatData] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const handleButtonClick = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  };
 
   async function runCompletion(prompt) {
     console.log("runCompletion");
@@ -54,7 +62,7 @@ const ChatGPTAPI = () => {
           {/* TOP HEADER */}
           <h2 className="mb-4 text-2xl text-white ">OpenAI - Large Language Models</h2>
           <h3 className="mb-4 text-lg text-white ">Models, Prompts, Resources, and the Art of Prompt Engineering</h3>
-          <section className="p-2 m-4 bg-opacity-50 border rounded-sm shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
+          <section className="w-3/8 md:w-7/8  p-2 m-4 bg-opacity-50 border rounded-sm shadow-xl bg-zinc-900 border-zinc-300 shadow-white opacity:bg-0">
             <PromptsComponent id="promptComponent" />
           </section>
           <section className="p-6 m-1 bg-opacity-50 rounded-sm ">

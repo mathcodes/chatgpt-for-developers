@@ -77,19 +77,7 @@ const ModelsComponent = () => {
           <option value="code-davinci-002">code-davinci-002</option>
 
         </select>
-        <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
-          <svg
-            className="w-4 h-4 fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M9.29289 11.7071C9.68342 12.0976 10.3166 12.0976 10.7071 11.7071L14.7071 7.70711C15.0976 7.31658 15.0976 6.68342 14.7071 6.29289C14.3166 5.90237 13.6834 5.90237 13.2929 6.29289L10 9.58579L6.70711 6.29289C6.31658 5.90237 5.68342 5.90237 5.29289 6.29289C4.90237 6.68342 4.75 7.31658 5.04289 7.60946L9.04289 11.6095C9.23327 11.8001 9.51957 11.8001 9.70995 11.6095L9.29289 11.7071Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
+
       </div>
     </div>
     <div className="flex w-full p-2 m-2 text-sm bg-gray-900 bg-opacity-50 border rounded-lg text-zinc-200 ">
